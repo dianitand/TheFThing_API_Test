@@ -1,0 +1,5 @@
+// require('./SignUpTesting.test')
+// require('./ActivationUser.test')
+// require('./LoginTesting.test')
+// require('./WishlistTest.test')
+require ('./SearchPorductATC.test')

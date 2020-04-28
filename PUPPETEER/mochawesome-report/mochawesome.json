@@ -1,0 +1,186 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2020-03-06T03:41:32.859Z",
+    "end": "2020-03-06T03:41:59.049Z",
+    "duration": 26190,
+    "testsRegistered": 1,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 1,
+    "hasOther": true,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "a590c91a-e416-4e1a-b081-ed9a85de9774",
+      "title": "",
+      "fullFile": "",
+      "file": "",
+      "beforeHooks": [
+        {
+          "title": "\"before all\" hook",
+          "fullTitle": "\"before all\" hook",
+          "timedOut": false,
+          "duration": 1544,
+          "state": null,
+          "speed": null,
+          "pass": false,
+          "fail": false,
+          "pending": false,
+          "context": null,
+          "code": "global.expect = expect;\nglobal.browser = await puppeteer.launch(opts);",
+          "err": {},
+          "uuid": "73f055ba-f2ea-4861-b0d0-517b58a4a699",
+          "parentUUID": "a590c91a-e416-4e1a-b081-ed9a85de9774",
+          "isHook": true,
+          "skipped": false
+        }
+      ],
+      "afterHooks": [
+        {
+          "title": "\"after all\" hook",
+          "fullTitle": "\"after all\" hook",
+          "timedOut": false,
+          "duration": 253,
+          "state": null,
+          "speed": null,
+          "pass": false,
+          "fail": false,
+          "pending": false,
+          "context": null,
+          "code": "browser.close();\nglobal.browser = globalVariables.browser;\nglobal.expect = globalVariables.expect;",
+          "err": {},
+          "uuid": "9b0fa927-dbc4-492b-870d-17e45f9311d1",
+          "parentUUID": "a590c91a-e416-4e1a-b081-ed9a85de9774",
+          "isHook": true,
+          "skipped": false
+        }
+      ],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "4ba539a0-8d0c-45f5-af88-bdec188fd0db",
+          "title": "The F thing Automate Test",
+          "fullFile": "D:\\automated_test\\PUPPETEER\\login.test.js",
+          "file": "\\login.test.js",
+          "beforeHooks": [
+            {
+              "title": "\"before all\" hook",
+              "fullTitle": "The F thing Automate Test \"before all\" hook",
+              "timedOut": false,
+              "duration": 11720,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "page = await browser.newPage();\nawait page.setViewport( { width: 1440, height: 900} );\nawait page.goto(\"https://thefthing.com/\");",
+              "err": {},
+              "uuid": "938c9e6e-190c-40bd-a863-43d5d80bc1e2",
+              "parentUUID": "4ba539a0-8d0c-45f5-af88-bdec188fd0db",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "afterHooks": [
+            {
+              "title": "\"after all\" hook for \"should login to home page\"",
+              "fullTitle": "The F thing Automate Test \"after all\" hook for \"should login to home page\"",
+              "timedOut": false,
+              "duration": 1,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "await page.close();",
+              "err": {
+                "message": "Error: Protocol error: Connection closed. Most likely the page has been closed.",
+                "estack": "Error: Protocol error: Connection closed. Most likely the page has been closed.\n    at assert (node_modules\\puppeteer\\lib\\helper.js:283:11)\n    at Page.close (node_modules\\puppeteer\\lib\\Page.js:1035:5)\n    at Page.<anonymous> (node_modules\\puppeteer\\lib\\helper.js:112:23)\n    at Context.<anonymous> (login.test.js:12:20)\n    at processImmediate (internal/timers.js:456:21)",
+                "diff": null
+              },
+              "uuid": "4d1c8ece-4f38-49b7-8d26-10e4cbd6f8a9",
+              "parentUUID": "4ba539a0-8d0c-45f5-af88-bdec188fd0db",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "tests": [
+            {
+              "title": "should login to home page",
+              "fullTitle": "The F thing Automate Test should login to home page",
+              "timedOut": false,
+              "duration": 12653,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "loginLink = await page.$('#login-anchor');\nloginEmailInput = await page.$('#login_form #exampleInputEmail1')\nloginPasswordInput = await page.$('#login_form #exampleInputPassword1')\nloginSubmit = await page.$('#login_form .btn-fthing-full')\n      \nawait loginLink.click();\nawait page.waitForSelector('#login_form')\nawait loginEmailInput.type('testing02@thefthing.com')\nawait loginPasswordInput.type('Testing123')\nawait loginSubmit.click()\n\n        //  await linkEmail.type('tariqul.islam.rony@gmail.com'); // add the email address for linkedin //\n\n        //  await linkPassword.click({ clickCount: 3});\n        //  await linkPassword.type('programmerrony01'); // add password for linkedin account\n\n        //  await linkSubmit.click();\nawait page.waitForNavigation();\nawait page.waitForSelector('.service-wrapper')\nlinkAccount = await page.$('.service-wrapper li a')\nawait linkAccount.click()\nconsole.log('sudah login')\nawait page.waitFor(500);\nexpect(page.url()).to.contain('/customer')",
+              "err": {
+                "message": "Error: Navigation failed because browser has disconnected!",
+                "estack": "Error: Navigation failed because browser has disconnected!\n    at CDPSession.<anonymous> (node_modules\\puppeteer\\lib\\LifecycleWatcher.js:46:107)\n    at CDPSession._onClosed (node_modules\\puppeteer\\lib\\Connection.js:215:10)\n    at Connection._onClose (node_modules\\puppeteer\\lib\\Connection.js:138:15)\n    at WebSocket.<anonymous> (node_modules\\puppeteer\\lib\\WebSocketTransport.js:48:22)\n    at WebSocket.onClose (node_modules\\ws\\lib\\event-target.js:124:16)\n    at WebSocket.emitClose (node_modules\\ws\\lib\\websocket.js:191:10)\n    at Socket.socketOnClose (node_modules\\ws\\lib\\websocket.js:850:15)\n    at TCP.<anonymous> (net.js:668:12)\n  -- ASYNC --\n    at Frame.<anonymous> (node_modules\\puppeteer\\lib\\helper.js:111:15)\n    at Page.waitForNavigation (node_modules\\puppeteer\\lib\\Page.js:692:49)\n    at Page.<anonymous> (node_modules\\puppeteer\\lib\\helper.js:112:23)\n    at Context.<anonymous> (login.test.js:33:21)\n    at runNextTicks (internal/process/task_queues.js:62:5)\n    at listOnTimeout (internal/timers.js:518:9)\n    at processTimers (internal/timers.js:492:7)",
+                "diff": null
+              },
+              "uuid": "60cf08e1-ecca-48fb-be25-2e4fc8968171",
+              "parentUUID": "4ba539a0-8d0c-45f5-af88-bdec188fd0db",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "60cf08e1-ecca-48fb-be25-2e4fc8968171"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 12653,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 0
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 0
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.1.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "5.0.0"
+    },
+    "marge": {
+      "options": {
+        "autoOpen": "true"
+      },
+      "version": "4.1.0"
+    }
+  }
+}
